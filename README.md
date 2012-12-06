@@ -1,8 +1,7 @@
 Hacking my SoundCloud job application. Who needs boring PDFs anyways.
 
-Roadmap
-======================
+## Roadmap
 
-** Submit the application
-** Join SoundCloud
-** Make the world better
+* Submit the application
+* Join SoundCloud
+* Make the world better
