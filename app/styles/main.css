@@ -2285,13 +2285,12 @@ a:visited {
   width: 50px;
   height: 50px;
   margin-bottom: 25px;
-  margin-top: 67px;
   border-radius: 40px;
 }
 @media only screen and (max-width: 1024px) {
   /* line 220, main.scss */
   #side-panel .content .profile-picture {
-    margin-top: 40px;
+    margin-top: 67px;
   }
 }
 @media only screen and (min-width: 1024px) {
