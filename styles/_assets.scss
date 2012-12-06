@@ -1,0 +1,48 @@
+
+$img_close : '../images/icons/close.png';  
+$img_education : '../images/icons/education.png';  
+$img_work : '../images/icons/work.png';  
+$img_projects : '../images/icons/projects.png';  
+$img_skills : '../images/icons/skills.png';  
+$img_fun : '../images/icons/fun.png';  
+$img_future : '../images/icons/future.png';  
+
+$img_app_bg : '../images/bg/sfdowntown.png';
+$img_wash_white : '../images/bg/wash-white.png';
+
+@mixin bg-wash-white() {
+  background-image:url($img_wash_white);  
+}
+
+@mixin icon-close(){
+  background-image:url($img_close);  
+}
+
+@mixin icon-education(){
+  background-image:url($img_education);  
+}
+
+@mixin icon-work(){
+  background-image:url($img_work);  
+}
+
+@mixin icon-projects(){
+  background-image:url($img_projects);  
+}
+
+@mixin icon-skills(){
+  background-image:url($img_projects);  
+}
+
+@mixin icon-fun(){
+  background-image:url($img_fun);  
+}
+
+@mixin icon-future(){
+  background-image:url($img_future);  
+}
+
+@font-face { 
+  font-family: Soundsturm; 
+  src: url('../fonts/regular.otf'); 
+}
