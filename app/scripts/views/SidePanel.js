@@ -8,11 +8,11 @@ define(['jquery','underscore','backbone','handlebars', "models/Section", 'text!t
 				Sections.getAll().on("change", function(section){
 					if(section.get("isSelected") === true){
 						setTimeout(function(){
-                        	$("#side-panel").addClass("solid");  
+                        	$("aside").addClass("solid");  
                       	},1000);
 					}else{
 						setTimeout(function(){
-		                  $("#side-panel").removeClass("solid");
+		                  $("aside").removeClass("solid");
 		                },1000);
 					}
 				}, this);

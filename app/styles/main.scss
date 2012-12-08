@@ -186,7 +186,7 @@ a{
   } 
 }
 
-#side-panel {
+aside {
   @include bg-wash-white();
   position:absolute;
   left:0; top:0; bottom:0; width:$side-panel-width; z-index:10000;
@@ -316,7 +316,7 @@ a{
       text-align:center;
     }
     
-    .header{
+    header{
 
       @media  #{$big-enough} {
         position:absolute;
@@ -374,37 +374,37 @@ a{
   }
   
   .content.studies{
-    .header{
+    header{
       @include icon-education();
     }
   }
   
   .content.work{
-    .header{
+    header{
       @include icon-work();
     }
   }
   
   .content.projects{
-    .header{
+    header{
       @include icon-projects();
     }
   }
   
   .content.skills{
-    .header{
+    header{
       @include icon-skills();
     }
   }
   
   .content.fun{
-    .header{
+    header{
       @include icon-fun();
     }
   }
  
   .content.future{
-    .header{
+    header{
       @include icon-future();
     }
   }

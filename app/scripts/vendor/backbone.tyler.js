@@ -2,7 +2,8 @@
 
 	Handlebars.views = Handlebars.views || {};
 	Handlebars.childViewClassName = "hbars-child-view";
-	
+	var defaultTagName = "div"
+
 	/* Support for composite views */
 	
 	Handlebars.getChildView = function(id){
@@ -15,13 +16,14 @@
 					? attributes.hash.__id : _.uniqueId("hbars-view");
 		var	className = typeof attributes.hash.__class !== 'undefined' 
 					? attributes.hash.__class + " " + Handlebars.childViewClassName : Handlebars.childViewClassName;
-		
+		var tagName = typeof attributes.hash.__tagName !== 'undefined'
+					? attributes.hash.__tagName : defaultTagName;
 
 		Handlebars.views[id] = {
 			path : path, attributes : attributes
 		};
 
-		return new Handlebars.SafeString("<div class='" + className + "' id='" + id + "'></div>");
+		return new Handlebars.SafeString("<" + tagName + " class='" + className + "' id='" + id + "'></" + tagName + ">");
 	});
 	
 	
@@ -30,7 +32,6 @@
 	//Composite view
 	Backbone.CompositeView = Backbone.View.extend({
 		render : function(){
-		  //$(this.el) = jQuery(this.template()); 
 		  $(this.el).html(this.template()); 
 
 		  $(this.el).find("." + Handlebars.childViewClassName).each(function(){
