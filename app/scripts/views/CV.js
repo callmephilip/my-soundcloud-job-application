@@ -10,11 +10,12 @@ define(['jquery','underscore','backbone','handlebars','models/Section','text!tem
 
 			initialize : function(){
 
-	            document.addEventListener('keydown', _.bind(function(e) {
+				$(document).keydown(_.bind(function(e) {
 	            	if(e.keyCode === 27) { //ESC
 						this.deselectCurrentSelection();
 	            	}
-	            },this), false);
+	            }, this));
+
 
 				Sections.getAll().on("change", function(section){
 					if(section.get("isSelected") === true){
@@ -23,8 +24,6 @@ define(['jquery','underscore','backbone','handlebars','models/Section','text!tem
 						this.hideCV();
 					}
 				}, this);
-
-				this.delegateEvents(this.events);
 			},
 
 			deselectCurrentSelection : function(){
@@ -36,17 +35,14 @@ define(['jquery','underscore','backbone','handlebars','models/Section','text!tem
 
 
 			displayCV : function(kind){
-				setTimeout(_.bind(function(){
-
-					$(this.el).find(".content").hide();
-	                $(this.el).find("." +  kind).show();
+				_.delay(function(context){
+					$(context.el).find(".content").hide();
+	                $(context.el).find("." +  kind).show();
 	                $("#cv").removeClass("hidden");
 
-	                setTimeout(_.bind(function(){
-	              		$("#cv").addClass("docked");
-	              	},this), 1000);
+					_.delay(function(){ $("#cv").addClass("docked"); }, 1000);
 
-				},this),1000);
+				},1000,this);
 			},
 
 			hideCV : function(){
