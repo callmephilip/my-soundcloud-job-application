@@ -135,7 +135,7 @@ a{
   } 
 }
 
-#perspective-container {
+nav {
   min-height:100%;
 
   @include transform-style(preserve-3d);
@@ -145,35 +145,18 @@ a{
   @media #{$tablet-and-below} {
     display: none !important;
   }
-}
+
+  ul {
+    width:800px; height:600px;
   
-#stage {
-  width:800px; height:600px;
-  
-  @include transform-style(preserve-3d);
-  @include transform-origin(center center);
+    @include transform-style(preserve-3d);
+    @include transform-origin(center center);
 
-  @media #{$tablet-and-below} {
-    display: none !important;
-  }
-}
+    @media #{$tablet-and-below} {
+      display: none !important;
+    }
 
-.initial-stage-view {
-  @include transform(rotatex(160deg) rotatey(0deg) rotatez(30deg) translate3d(300px, -900px, 4000px));
-}
-
-#cubes{
-  position:relative;
-  width:800px; height:600px;
-  
-  @include transition-property(all);
-  @include transition-duration(0.5s);
-  @include transition-timing-function(linear);
-
-  @include transform-style(preserve-3d);
-
-  @media #{$tablet-and-below} {
-    display: none !important;
+    @include transform(rotatex(160deg) rotatey(0deg) rotatez(30deg) translate3d(300px, -900px, 4000px));
   }
 }
 

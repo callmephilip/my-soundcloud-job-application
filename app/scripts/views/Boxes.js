@@ -5,7 +5,8 @@ define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!t
 			template : Handlebars.compile(boxesTemplate),
 			
 			className : "initial-stage-view",  
-			id : "stage",
+			tagName: "ul",
+            id : "stage",
 
 			events : {
 				"click .face" : "onFaceClicked"
@@ -25,8 +26,6 @@ define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!t
 
 			onFaceClicked : function(e){
 				
-
-
 				var cube = $(e.target).parent();
                 var category = cube.attr("data-rel");
 
