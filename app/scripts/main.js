@@ -2,7 +2,7 @@ require.config({
   
   shim: {
   	'underscore' : {exports: '_' },
-	'backbone' : { deps : ['underscore'], exports: 'Backbone'},
+    'backbone' : { deps : ['underscore'], exports: 'Backbone'},
     'handlebars' : { exports: 'Handlebars' },
     'tyler' : { deps : ['backbone'] }
   },
@@ -22,6 +22,4 @@ require.config({
 });
  
 require(['app'], function(app) {
-  // use app here
-  console.log(app);
 });
