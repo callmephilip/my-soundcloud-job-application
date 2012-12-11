@@ -1,4 +1,4 @@
-define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!templates/box.html'], 
+define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!templates/box.html'],
     function($, _, Backbone, Handlebars, Sections, boxTemplate) {
 
         var Box = Backbone.View.extend({
@@ -6,7 +6,7 @@ define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!t
 
             events : {
                 "click .face" : "onFaceClicked"
-            }, 
+            },
 
             initialize : function(attributes){
                 this.kind = attributes.kind;
@@ -16,7 +16,7 @@ define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!t
                         this.restoreBox();
                     } else {
                         this.unwrapBox();
-                    }                                        
+                    }
                 }, this);
             },
 
@@ -34,7 +34,7 @@ define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!t
                 _.delay(function(context){ context.box().removeClass("unwrap").addClass("moving"); }, 500, this);
             },
 
-            onFaceClicked : function(e){
+            onFaceClicked : function(){
                 this.section.select();
             },
 
@@ -43,7 +43,7 @@ define(['jquery','underscore','backbone','handlebars', 'models/Section', 'text!t
                     this.template({ kind:this.kind, faces : [1,2,3,4,5,6]})
                 );
                 return this.el;
-            } 
+            }
         });
 
         return Box;
