@@ -26,6 +26,14 @@ require(['underscore','models/Section'],function(_,SectionData){
             expect(SectionData).respondTo('getCurrentSelection');
           });
 
+          it('exports Section model class', function(){
+            expect(SectionData.Section).to.be.ok;
+          });
+
+          it('exports Section collection class', function(){
+            expect(SectionData.SectionCollection).to.be.ok;
+          });
+
         });
 
         describe('#getAll()', function(){
@@ -107,6 +115,34 @@ require(['underscore','models/Section'],function(_,SectionData){
             var s = SectionData.getByKind('fun');
             s.select(); 
             expect(SectionData.getCurrentSelection()).to.be.eql(s);
+          });
+
+        });
+
+        describe('Section model', function(){
+
+          it('supports select operation', function(){
+            expect(new SectionData.Section().select).to.be.ok;
+          });
+
+          it('supports deselect operation', function(){
+            expect(new SectionData.Section().deselect).to.be.ok;
+          });
+
+          it('is not selected by default', function(){
+            expect(new SectionData.Section().get("isSelected")).to.be.false;
+          });
+
+          it('is selected once select() is called', function(){
+            var s = new SectionData.Section();
+            s.select();
+            expect(s.get("isSelected")).to.be.true;
+          });
+
+          it('is not selected once deselect() is called', function(){
+            var s = new SectionData.Section();
+            s.select(); s.deselect();
+            expect(s.get("isSelected")).to.be.false;
           });
 
         });

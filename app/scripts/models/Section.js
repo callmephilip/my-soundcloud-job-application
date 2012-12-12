@@ -30,6 +30,10 @@ define(['jquery','underscore','backbone'],
 		]);
 
 		return{
+
+			Section : Section,
+			SectionCollection : SectionCollection,
+
 			getAll : function(){
 				return __sections;
 			},
