@@ -6,3 +6,4 @@ dist
 .gitattributes
 .jshintrc
 *.css
+test/scripts
