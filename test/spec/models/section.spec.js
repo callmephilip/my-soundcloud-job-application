@@ -2,6 +2,9 @@ require(['underscore','models/Section'],function(_,SectionData){
 
     describe('SectionData', function () {
         
+        var supportedSectionKinds = ["studies","work","projects","skills","fun","future"],
+            invalidSectionKind = 'gibberish';
+
         /*
           Section data module integrity check
         */
@@ -27,8 +30,7 @@ require(['underscore','models/Section'],function(_,SectionData){
 
         describe('#getAll()', function(){
    
-          var supportedSectionKinds = ["studies","work","projects","skills","fun","future"],
-              sections;
+          var sections;
 
           beforeEach(function(){
             sections = SectionData.getAll(); 
@@ -63,6 +65,32 @@ require(['underscore','models/Section'],function(_,SectionData){
           });
 
         });
-    });
 
+        describe('#getByKind()', function(){
+
+          it('returns nothing if kind is not passed', function(){
+            expect(SectionData.getByKind()).to.be.not.ok;
+          });
+
+          it('returns nothing for invalid kind', function(){
+            expect(SectionData.getByKind(invalidSectionKind)).to.be.not.ok;
+          });
+
+          it('retruns something if kind is one of these: ' + supportedSectionKinds, function(){
+            _.each(supportedSectionKinds, function(kind){
+              expect(SectionData.getByKind(kind)).to.be.ok;
+            });
+          });          
+
+          it('returns a model with a proper kind for each of these: ' + supportedSectionKinds, function(){
+            _.each(supportedSectionKinds, function(kind){
+              expect(SectionData.getByKind(kind)).to.satisfy(function(m){
+                return m.get('kind') === kind;
+              });
+            });
+          });
+
+        });
+
+    });
 });
