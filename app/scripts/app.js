@@ -6,8 +6,10 @@ define(['jquery','underscore','backbone','handlebars', "models/Section", 'text!t
             });
 
             $(document).ready(function(){
-                $('body').prepend(
-                    new ApplicationView().render()
-                );
+                if($('#mocha').length === 0){
+                    $('body').prepend(
+                        new ApplicationView().render()
+                    );
+                }
             });
 });
