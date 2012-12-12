@@ -19,7 +19,7 @@ module.exports = function( grunt ) {
     coffee: {
       compile: {
         files: {
-          'temp/scripts/*.js': 'app/scripts/**/*.coffee' 
+          'temp/scripts/*.js': 'app/scripts/**/*.coffee'
         },
         options: {
           basePath: 'app/scripts'
@@ -48,7 +48,13 @@ module.exports = function( grunt ) {
 
     // headless testing through PhantomJS
     mocha: {
-      all: ['test/**/*.html']
+      all: {
+        src : ['test/**/*.html'],
+        options : {
+            ui : 'bdd',
+            ignoreLeaks : true
+        }
+      }
     },
 
     // default watch configuration
@@ -186,5 +192,5 @@ module.exports = function( grunt ) {
 
   // Alias the `test` task to run the `mocha` task instead
   grunt.registerTask('test', 'server:phantom mocha');
-
+  grunt.registerTask('test-ui', 'server:test mocha');
 };
