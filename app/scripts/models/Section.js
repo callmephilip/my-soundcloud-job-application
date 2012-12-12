@@ -12,6 +12,18 @@ define(['jquery','underscore','backbone'],
 
 			deselect : function(){
 				this.set({isSelected:false});
+			},
+
+			validate: function(attrs) {
+				if(typeof this.collection !== 'undefined'){
+					if(!this.get('isSelected')){
+						if(attrs.isSelected){
+							if(_.filter(this.collection.models, function(m){ return m.get('isSelected'); }).length !== 0){
+								return 'Attempt to select multiple sections';
+							}
+						}
+					}
+				}
 			}
 		});
 

@@ -145,7 +145,19 @@ require(['underscore','models/Section'],function(_,SectionData){
             expect(s.get("isSelected")).to.be.false;
           });
 
-        });
+          it('triggers an error on select() when it is in a collection and one other section within the collection is already selected',function(done){
+            var c = new SectionData.SectionCollection([
+              new SectionData.Section({ kind : 'kind1'}),
+              new SectionData.Section({ kind : 'kind2'})
+            ]);
 
+            c.models[0].select();
+            c.models[1].on("error", function(model, error) {
+              done();  
+            }).select();
+
+          });
+
+        });
     });
 });
