@@ -92,5 +92,24 @@ require(['underscore','models/Section'],function(_,SectionData){
 
         });
 
+        describe('#getCurrentSelection()', function(){
+
+          it('returns nothing when no section is selected', function(){
+            expect(SectionData.getCurrentSelection()).to.be.not.ok;
+          });
+
+          it('returns something when a section is selected', function(){
+            SectionData.getByKind('fun').select(); 
+            expect(SectionData.getCurrentSelection()).to.be.ok;
+          });
+
+          it('returns a selected section', function(){
+            var s = SectionData.getByKind('fun');
+            s.select(); 
+            expect(SectionData.getCurrentSelection()).to.be.eql(s);
+          });
+
+        });
+
     });
 });
