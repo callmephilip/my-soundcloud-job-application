@@ -6,11 +6,14 @@
   <link rel="stylesheet" href="lib/mocha/mocha.css">
 </head>
 <body>
+  <div id="sandbox" style="display:none;"></div>
+
   <div id="mocha"></div>
 
-
+  <script src="scripts/vendor/jquery.min.js"></script>
   <script src="lib/mocha/mocha.js"></script>
   <script src="lib/chai.js"></script>
+  <script src="lib/chai-jquery.js"></script>
   <script data-main="scripts/main.js" src="scripts/vendor/require.js"></script>
 
 
@@ -18,7 +21,13 @@
   <script>
     mocha.setup({ ui : "bdd", ignoreLeaks : true});
     expect = chai.expect;
-    require(['../spec/models/section.spec'],function(){
+
+    var specs = [
+      '../spec/models/section.spec',
+      '../spec/views/box.spec',      
+    ];
+
+    require(specs,function(){
         setTimeout(function(){
             require(["../runner/mocha"]);
         },100);
